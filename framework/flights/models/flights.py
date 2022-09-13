@@ -8,7 +8,7 @@ class Flights(models.Model):
         on_delete=models.CASCADE,
         blank=False, null=False
     )
-    flight_number = models.CharField(max_length=10)
+    flight_number = models.CharField(max_length=10, unique=True)
     departure = models.CharField(max_length=100)
     arrival = models.CharField(max_length=100)
     departure_time = models.TimeField()

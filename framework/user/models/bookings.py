@@ -13,6 +13,7 @@ class Bookings(models.Model):
         on_delete=models.CASCADE,
         null=False, blank=False
     )
+    date = models.DateField(null=False, blank=False, default=None)
     amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
