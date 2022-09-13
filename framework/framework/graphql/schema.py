@@ -1,10 +1,11 @@
 import strawberry
 from strawberry.extensions import QueryDepthLimiter, ValidationCache, ParserCache, AddValidationRules
 from strawberry.tools import merge_types
+from flights.graphql.mutations import FlightMutations
+from flights.graphql.queries import FlightQueries
 
-
-# Mutations = merge_types('Mutations', ())
-# Query = merge_types('Queries', ())
+Mutations = merge_types('Mutations', (FlightMutations,))
+Query = merge_types('Queries', (FlightQueries,))
 
 extensions = [
     QueryDepthLimiter(max_depth=10),
@@ -13,13 +14,13 @@ extensions = [
 ]
 
 schema = strawberry.Schema(
-    # query=Query,
-    # mutation=Mutations,
+    query=Query,
+    mutation=Mutations,
     extensions=extensions
 )
 
 __all__ = [
     'schema',
-    # 'Query',
+    'Query',
     # 'Mutations',
 ]

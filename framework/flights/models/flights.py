@@ -11,8 +11,8 @@ class Flights(models.Model):
     flight_number = models.CharField(max_length=10)
     departure = models.CharField(max_length=100)
     arrival = models.CharField(max_length=100)
-    departure_time = models.DateTimeField()
-    arrival_time = models.DateTimeField()
+    departure_time = models.TimeField()
+    arrival_time = models.TimeField()
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     is_active = models.BooleanField(default=True)
 
