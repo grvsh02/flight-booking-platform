@@ -1,11 +1,14 @@
+from typing import Optional
+
 import strawberry
 
+
 @strawberry.input
-class PassengerInput(strawberry.input):
+class PassengerInput:
     first_name: str
     last_name: str
     age: int
-    gender: str
+    gender: Optional[str] = None
 
 
 @strawberry.input

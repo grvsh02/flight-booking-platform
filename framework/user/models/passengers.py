@@ -13,13 +13,16 @@ class Passengers(models.Model):
     age = models.IntegerField(
         null=False, blank=False
     )
+    gender_choices = (
+        ('male', "Male"),
+        ('female', 'Female'),
+        ('others', 'Others')
+    )
     gender = models.CharField(
-        max_length=10,
-        choices=(
-            ("Male", "MALE"),
-            ("Female", "FEMALE"),
-            ("Others", "OTHERS")
-        ),
+        max_length=50,
+        choices=gender_choices,
+        null=True, blank=True,
+        default="others"
     )
 
     class Meta:
@@ -28,4 +31,4 @@ class Passengers(models.Model):
         verbose_name = "Passenger"
 
     def __str__(self):
-        return self.id
+        return self.first_name

@@ -14,7 +14,7 @@ class Bookings(models.Model):
         null=False, blank=False
     )
     date = models.DateField(null=False, blank=False, default=None)
-    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    amount = models.DecimalField(max_digits=15, decimal_places=2, default=0.00)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, blank=True)

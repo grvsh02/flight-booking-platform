@@ -18,7 +18,7 @@ class BookingMutations:
         from user.models.bookings import Bookings
         from user.models.user import User
         from flights.models.flights import Flights
-        from flights.models.passengers import Passengers
+        from user.models.passengers import Passengers
         try:
             User.objects.get(id=booking.user)
         except User.DoesNotExist:
@@ -28,7 +28,7 @@ class BookingMutations:
         except Flights.DoesNotExist:
             raise ValueError("Flight does not exist")
 
-        amount = flight.price * passengers.count()
+        amount = flight.price * len(passengers)
 
         if flight.is_active:
             user = User.objects.get(id=booking.user)
@@ -48,7 +48,6 @@ class BookingMutations:
                 last_name=passenger.last_name,
                 booking=booking,
                 age=passenger.age,
-                gender=passenger
             )
 
         return True
