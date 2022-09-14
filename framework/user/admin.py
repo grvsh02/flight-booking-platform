@@ -7,8 +7,8 @@ from user.models.user import User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['id', 'first_name', 'last_name', 'email', 'is_active', 'created_at', 'updated_at', 'deleted_at']
-    list_filter = ['is_active']
+    list_display = ['email']
+    list_filter = ['email']
     search_fields = ['email']
 
 

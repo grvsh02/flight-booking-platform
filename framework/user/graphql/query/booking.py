@@ -1,6 +1,7 @@
 from typing import List
 
 import strawberry
+from gqlauth.decorators import login_required
 
 from user.graphql.types.booking import BookingType, BookingsType
 
@@ -8,6 +9,7 @@ from user.graphql.types.booking import BookingType, BookingsType
 @strawberry.type
 class BookingQueries:
 
+    @login_required
     @strawberry.field
     def view_bookings(
             self, info,
@@ -24,6 +26,7 @@ class BookingQueries:
 
         return qs
 
+    @login_required
     @strawberry.field
     def view_booking(
             self, info,
