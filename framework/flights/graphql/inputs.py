@@ -31,14 +31,22 @@ class FlightUpdateInput:
 @strawberry.input
 class AirlineInput:
     name: str
-    # logo: str
     website: Optional[str] = None
     country: Optional[str] = None
     slogan: Optional[str] = None
-    head_quaters: Optional[str] = None
     established: Optional[str] = None
     is_active: Optional[bool] = None
 
+
+@strawberry.input
+class AirlineUpdateInput:
+    id: strawberry.ID
+    name: Optional[str] = None
+    website: Optional[str] = None
+    country: Optional[str] = None
+    slogan: Optional[str] = None
+    established: Optional[str] = None
+    is_active: Optional[bool] = None
 
 
 __all__ = [
