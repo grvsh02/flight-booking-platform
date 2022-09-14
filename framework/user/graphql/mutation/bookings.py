@@ -53,3 +53,17 @@ class BookingMutations:
             )
 
         return True
+
+    @strawberry.mutation
+    @login_required
+    def cancel_booking(
+            self, info,
+            bookingId: int
+    ) -> bool:
+        from user.models.bookings import Bookings
+        try:
+            booking = Bookings.objects.get(id=bookingId)
+        except Bookings.DoesNotExist:
+            raise ValueError("Booking does not exist")
+        booking.delete()
+        return True
