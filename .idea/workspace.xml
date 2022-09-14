@@ -24,7 +24,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/Gaurav/Documents/flight-booking-platform"
+    "last_opened_file_path": "/home/Gaurav/Documents/flight-booking-platform",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -60,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663070958392</updated>
       <workItem from="1663070959693" duration="255000" />
+      <workItem from="1663159469273" duration="70000" />
     </task>
     <servers />
   </component>
