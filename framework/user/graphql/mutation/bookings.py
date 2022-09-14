@@ -1,6 +1,7 @@
 from typing import List
 
 import strawberry
+from strawberry_django_jwt.decorators import login_required
 
 from user.graphql.inputs.booking import FlightBookingInput, PassengerInput
 
@@ -9,6 +10,7 @@ from user.graphql.inputs.booking import FlightBookingInput, PassengerInput
 class BookingMutations:
 
     @strawberry.mutation
+    @login_required
     def book_flight(
             self, info,
             booking: FlightBookingInput,
@@ -51,6 +53,3 @@ class BookingMutations:
             )
 
         return True
-
-
-

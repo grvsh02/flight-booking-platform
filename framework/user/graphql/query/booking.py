@@ -1,7 +1,7 @@
 from typing import List
 
 import strawberry
-from gqlauth.decorators import login_required
+from strawberry_django_jwt.decorators import login_required
 
 from user.graphql.types.booking import BookingType, BookingsType
 
@@ -9,12 +9,13 @@ from user.graphql.types.booking import BookingType, BookingsType
 @strawberry.type
 class BookingQueries:
 
-    @login_required
     @strawberry.field
+    @login_required
     def view_bookings(
             self, info,
             userId: int
     ) -> List[BookingsType]:
+        print("something", info.context)
         from user.models.user import User
         try:
             user = User.objects.get(id=userId)
@@ -26,8 +27,8 @@ class BookingQueries:
 
         return qs
 
-    @login_required
     @strawberry.field
+    @login_required
     def view_booking(
             self, info,
             userId: int,
