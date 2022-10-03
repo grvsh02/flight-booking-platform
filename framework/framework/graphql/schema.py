@@ -9,10 +9,9 @@ from flights.graphql.queries import FlightQueries
 from user.graphql.mutation.bookings import BookingMutations
 from user.graphql.query.booking import BookingQueries
 from gqlauth.user.queries import UserQueries
-from user.auth.schema import UserMutations
 
 
-Mutations = merge_types('Mutations', (FlightMutations, UserMutations, AirlineMutations, BookingMutations))
+Mutations = merge_types('Mutations', (FlightMutations, AirlineMutations, BookingMutations))
 Query = merge_types('Queries', (FlightQueries, UserQueries, BookingQueries))
 
 extensions = [

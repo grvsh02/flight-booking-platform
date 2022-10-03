@@ -1,7 +1,6 @@
 from typing import List
 
 import strawberry
-from strawberry_django_jwt.decorators import login_required
 
 from user.graphql.types.booking import BookingType, BookingsType
 
@@ -10,7 +9,6 @@ from user.graphql.types.booking import BookingType, BookingsType
 class BookingQueries:
 
     @strawberry.field
-    @login_required
     def view_bookings(
             self, info,
             userId: int
@@ -28,7 +26,6 @@ class BookingQueries:
         return qs
 
     @strawberry.field
-    @login_required
     def view_booking(
             self, info,
             userId: int,

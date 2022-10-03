@@ -31,8 +31,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "strawberry_django",
-    'strawberry_django_jwt.refresh_token',
-    "gqlauth",
     'user',
     'flights',
 ]
@@ -40,14 +38,8 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'user.User'
 
 AUTHENTICATION_BACKENDS = [
-    'gqlauth.backends.GraphQLAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
-
-GRAPHQL_JWT = {
-    "JWT_VERIFY_EXPIRATION": True,
-    "JWT_LONG_RUNNING_REFRESH_TOKEN": True,
-}
 
 
 MIDDLEWARE = [
