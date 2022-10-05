@@ -1,5 +1,4 @@
 import strawberry
-from strawberry_django_jwt.decorators import superuser_required
 
 from flights.graphql.inputs import AirlineInput, AirlineUpdateInput
 
@@ -8,7 +7,6 @@ from flights.graphql.inputs import AirlineInput, AirlineUpdateInput
 class AirlineMutations:
 
     @strawberry.mutation
-    @superuser_required
     def create_airline(
             self, info,
             airline: AirlineInput,
@@ -32,7 +30,6 @@ class AirlineMutations:
         return True
 
     @strawberry.mutation
-    @superuser_required
     def update_airline(
             self, info,
             airline: AirlineUpdateInput,
@@ -59,7 +56,6 @@ class AirlineMutations:
         return True
 
     @strawberry.mutation
-    @superuser_required
     def delete_airline(
             self, info,
             airline_id: int,
