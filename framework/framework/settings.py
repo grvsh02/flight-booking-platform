@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "strawberry_django",
+    "strawberry_jwt_auth",
     'user',
     'flights',
 ]
